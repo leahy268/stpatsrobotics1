@@ -10,6 +10,7 @@ param outputLocation string = 'dist'
 param appLocation string = 'client'
 param customDomainName string = 'stpatsrobotics1.info'
 param customDomainValidationMethod string = 'dns-txt-token'
+param sku string = 'Standard'
 @description('Set to true to copy the Static Web App deployment token into a Key Vault secret once the app is provisioned.')
 param exportDeploymentToken bool = false
 @description('Name of the existing Key Vault that will store the Static Web App deployment token. Required when exportDeploymentToken is true.')
@@ -43,6 +44,7 @@ module staticSite 'br/public:avm/res/web/static-site:0.9.3' = {
     branch: repositoryBranch
     repositoryToken: repositoryToken
     buildProperties: buildConfig
+    sku: sku
     managedIdentities: {
       systemAssigned: true
     }
