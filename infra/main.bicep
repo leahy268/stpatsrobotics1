@@ -34,13 +34,13 @@ resource siteRg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   location: location
 }
 
-module staticSite 'br/public:avm/res/web/static-site:0.8.0' = {
+module staticSite 'br/public:avm/res/web/static-site:0.9.3' = {
   name: '${staticSiteName}-static'
   scope: siteRg
   params: {
     name: staticSiteName
     location: location
-    sku: sku
+    sku:  sku
     repositoryUrl: repositoryUrl
     branch: repositoryBranch
     repositoryToken: repositoryToken
