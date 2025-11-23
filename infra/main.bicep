@@ -8,7 +8,6 @@ param repositoryToken string
 param repositoryBranch string = 'main'
 param outputLocation string = 'dist'
 param appLocation string = 'client'
-param sku string = 'Free'
 param customDomainName string = 'stpatsrobotics1.info'
 param customDomainValidationMethod string = 'dns-txt-token'
 @description('Set to true to copy the Static Web App deployment token into a Key Vault secret once the app is provisioned.')
@@ -22,7 +21,7 @@ param tokenWriterIdentityId string = ''
 
 var normalizedBase = toLower(replace(baseName, '_', '-'))
 var resourceGroupName = '${normalizedBase}-swa-rg'
-var staticSiteName = toLower(take('${normalizedBase}-${uniqueString(subscription().id, deployment().name)}', 40))
+var staticSiteName = toLower(take('${normalizedBase}-${uniqueString(subscription().id, resourceGroupName)}', 40))
 var buildConfig = {
   appLocation: appLocation
   apiLocation: ''
@@ -39,8 +38,7 @@ module staticSite 'br/public:avm/res/web/static-site:0.9.3' = {
   scope: siteRg
   params: {
     name: staticSiteName
-    location: location
-    sku:  sku
+    location: location  
     repositoryUrl: repositoryUrl
     branch: repositoryBranch
     repositoryToken: repositoryToken
