@@ -1,0 +1,135 @@
+name: Deploy Static Web App
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+  workflow_call:
+    secrets:
+      AZURE_CLIENT_ID:
+        required: true
+      AZURE_TENANT_ID:
+        required: true
+      AZURE_SUBSCRIPTION_ID:
+        required: true
+      AZURE_DEPLOYMENT_LOCATION:
+        required: true
+      STATIC_WEB_APP_REPO_TOKEN:
+        required: true
+      AZURE_KEYVAULT_NAME:
+        required: true
+      AZURE_KEYVAULT_SECRET_NAME:
+        required: false
+      AZURE_TOKEN_WRITER_IDENTITY_ID:
+        required: true
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      AZURE_DEPLOYMENT_LOCATION: ${{ secrets.AZURE_DEPLOYMENT_LOCATION }}
+      STATIC_WEB_APP_REPO_TOKEN: ${{ secrets.STATIC_WEB_APP_REPO_TOKEN }}
+      AZURE_KEYVAULT_NAME: ${{ secrets.AZURE_KEYVAULT_NAME }}
+      AZURE_KEYVAULT_SECRET_NAME: ${{ secrets.AZURE_KEYVAULT_SECRET_NAME }}
+      AZURE_TOKEN_WRITER_IDENTITY_ID: ${{ secrets.AZURE_TOKEN_WRITER_IDENTITY_ID }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Install dependencies
+        working-directory: client
+        run: pnpm install --frozen-lockfile
+
+      - name: Build app
+        working-directory: client
+        run: pnpm run build
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          client-id: ${{ env.AZURE_CLIENT_ID }}
+          tenant-id: ${{ env.AZURE_TENANT_ID }}
+          subscription-id: ${{ env.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Deploy infrastructure
+        if: github.event_name == 'push'
+        id: deploy_infra
+        run: |
+          set -euo pipefail
+          param_args=(
+            "repositoryUrl=https://github.com/${GITHUB_REPOSITORY}"
+            "repositoryBranch=${GITHUB_REF_NAME}"
+            "repositoryToken=${STATIC_WEB_APP_REPO_TOKEN}"
+            "exportDeploymentToken=true"
+            "keyVaultName=${AZURE_KEYVAULT_NAME}"
+            "tokenWriterIdentityId=${AZURE_TOKEN_WRITER_IDENTITY_ID}"
+          )
+          kvSecretName="${AZURE_KEYVAULT_SECRET_NAME}"
+          if [ -n "$kvSecretName" ]; then
+            param_args+=("keyVaultSecretName=$kvSecretName")
+          fi
+          outputs=$(az deployment sub create \
+            --name "swa-${GITHUB_RUN_NUMBER}" \
+            --location "${AZURE_DEPLOYMENT_LOCATION}" \
+            --template-file infra/main.bicep \
+            --parameters "${param_args[@]}" \
+            --query properties.outputs \
+            --output json)
+          rg=$(echo "$outputs" | jq -r '.resourceGroupName.value')
+          site=$(echo "$outputs" | jq -r '.staticSiteName.value')
+          hostname=$(echo "$outputs" | jq -r '.staticSiteDefaultHostname.value')
+          echo "resource-group=$rg" >> $GITHUB_OUTPUT
+          echo "static-site-name=$site" >> $GITHUB_OUTPUT
+          echo "static-site-hostname=$hostname" >> $GITHUB_OUTPUT
+          echo "INFO: Resource group $rg and Static Web App $site deployed."
+
+      - name: Retrieve deployment token
+        id: fetch_token
+        env:
+          KEYVAULT_NAME: ${{ env.AZURE_KEYVAULT_NAME }}
+          SECRET_NAME: ${{ env.AZURE_KEYVAULT_SECRET_NAME }}
+        run: |
+          set -euo pipefail
+          secret_name="$SECRET_NAME"
+          if [ -z "$secret_name" ] || [ "$secret_name" = "null" ]; then
+            secret_name="static-web-app-token"
+          fi
+          token=$(az keyvault secret show \
+            --vault-name "$KEYVAULT_NAME" \
+            --name "$secret_name" \
+            --query value \
+            --output tsv)
+          if [ -z "$token" ]; then
+            echo "Failed to retrieve Static Web App deployment token from Key Vault." >&2
+            exit 1
+          fi
+          echo "::add-mask::$token"
+          echo "deployment-token=$token" >> $GITHUB_OUTPUT
+
+      - name: Deploy to Azure Static Web Apps
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ steps.fetch_token.outputs.deployment-token }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: upload
+          skip_app_build: true
+          app_location: client/dist

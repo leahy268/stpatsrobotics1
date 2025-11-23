@@ -1,5 +1,7 @@
-param staticSiteName string
-param location string = resourceGroup().location
+targetScope = 'subscription'
+
+param baseName string = 'stpatsrobotics1'
+param location string = deployment().location
 param repositoryUrl string
 @secure()
 param repositoryToken string
@@ -9,15 +11,32 @@ param appLocation string = 'client'
 param sku string = 'Free'
 param customDomainName string = 'stpatsrobotics1.info'
 param customDomainValidationMethod string = 'dns-txt-token'
+@description('Set to true to copy the Static Web App deployment token into a Key Vault secret once the app is provisioned.')
+param exportDeploymentToken bool = false
+@description('Name of the existing Key Vault that will store the Static Web App deployment token. Required when exportDeploymentToken is true.')
+param keyVaultName string = ''
+@description('Key Vault secret name that will hold the Static Web App deployment token.')
+param keyVaultSecretName string = 'static-web-app-token'
+@description('Resource ID of a user-assigned managed identity with permission to read the Static Web App secrets and write secrets to the target Key Vault. Required when exportDeploymentToken is true.')
+param tokenWriterIdentityId string = ''
 
+var normalizedBase = toLower(replace(baseName, '_', '-'))
+var resourceGroupName = '${normalizedBase}-swa-rg'
+var staticSiteName = toLower(take('${normalizedBase}-${uniqueString(subscription().id, deployment().name)}', 40))
 var buildConfig = {
   appLocation: appLocation
   apiLocation: ''
   outputLocation: outputLocation
 }
 
+resource siteRg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
+  name: resourceGroupName
+  location: location
+}
+
 module staticSite 'br/public:avm/res/web/static-site:0.8.0' = {
   name: '${staticSiteName}-static'
+  scope: siteRg
   params: {
     name: staticSiteName
     location: location
@@ -32,19 +51,31 @@ module staticSite 'br/public:avm/res/web/static-site:0.8.0' = {
   }
 }
 
-resource staticSiteResource 'Microsoft.Web/staticSites@2024-04-01' existing = {
-  name: staticSiteName
-}
-
-// Deploys the custom domain; add the required DNS TXT record `_dnsauth.<domain>` before running.
-resource customDomain 'Microsoft.Web/staticSites/customDomains@2022-03-01' = if (!empty(customDomainName)) {
-  parent: staticSiteResource
-  name: customDomainName
-  properties: {
+module customDomain 'customDomain.bicep' = if (!empty(customDomainName)) {
+  name: '${staticSiteName}-customDomain'
+  scope: siteRg
+  params: {
+    staticSiteName: staticSiteName
+    customDomainName: customDomainName
     validationMethod: customDomainValidationMethod
   }
 }
 
+var shouldExportToken = exportDeploymentToken && !empty(keyVaultName) && !empty(tokenWriterIdentityId)
+
+module tokenExport 'tokenToKeyVault.bicep' = if (shouldExportToken) {
+  name: '${staticSiteName}-token-export'
+  scope: siteRg
+  params: {
+    location: location
+    staticSiteName: staticSiteName
+    keyVaultName: keyVaultName
+    secretName: keyVaultSecretName
+    userAssignedIdentityId: tokenWriterIdentityId
+  }
+}
+
+output resourceGroupName string = resourceGroupName
 output staticSiteResourceId string = staticSite.outputs.resourceId
 output staticSiteDefaultHostname string = staticSite.outputs.defaultHostname
-output staticSiteManagedIdentityPrincipalId string = staticSite.outputs.systemAssignedMIPrincipalId ?? ''
+output staticSiteName string = staticSiteName
