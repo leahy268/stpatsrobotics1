@@ -57,7 +57,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: client
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Build app
         working-directory: client
