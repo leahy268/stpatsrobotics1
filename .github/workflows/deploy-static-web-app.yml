@@ -20,12 +20,6 @@ on:
         required: true
       STATIC_WEB_APP_REPO_TOKEN:
         required: true
-      AZURE_KEYVAULT_NAME:
-        required: true
-      AZURE_KEYVAULT_SECRET_NAME:
-        required: false
-      AZURE_TOKEN_WRITER_IDENTITY_ID:
-        required: true
 
 permissions:
   id-token: write
@@ -70,23 +64,13 @@ jobs:
         env:
           AZURE_DEPLOYMENT_LOCATION: ${{ secrets.AZURE_DEPLOYMENT_LOCATION }}
           STATIC_WEB_APP_REPO_TOKEN: ${{ secrets.STATIC_WEB_APP_REPO_TOKEN }}
-          AZURE_KEYVAULT_NAME: ${{ secrets.AZURE_KEYVAULT_NAME }}
-          AZURE_KEYVAULT_SECRET_NAME: ${{ secrets.AZURE_KEYVAULT_SECRET_NAME }}
-          AZURE_TOKEN_WRITER_IDENTITY_ID: ${{ secrets.AZURE_TOKEN_WRITER_IDENTITY_ID }}
         run: |
           set -euo pipefail
           param_args=(
             "repositoryUrl=https://github.com/${GITHUB_REPOSITORY}"
             "repositoryBranch=${GITHUB_REF_NAME}"
             "repositoryToken=${STATIC_WEB_APP_REPO_TOKEN}"
-            "exportDeploymentToken=true"
-            "keyVaultName=${AZURE_KEYVAULT_NAME}"
-            "tokenWriterIdentityId=${AZURE_TOKEN_WRITER_IDENTITY_ID}"
           )
-          kvSecretName="${AZURE_KEYVAULT_SECRET_NAME}"
-          if [ -n "$kvSecretName" ]; then
-            param_args+=("keyVaultSecretName=$kvSecretName")
-          fi
           outputs=$(az deployment sub create \
             --name "swa-${GITHUB_RUN_NUMBER}" \
             --location "${AZURE_DEPLOYMENT_LOCATION}" \
@@ -105,23 +89,31 @@ jobs:
       - name: Retrieve deployment token
         id: fetch_token
         if: github.event_name == 'push'
-        env:
-          KEYVAULT_NAME: ${{ secrets.AZURE_KEYVAULT_NAME }}
-          SECRET_NAME: ${{ secrets.AZURE_KEYVAULT_SECRET_NAME }}
         run: |
           set -euo pipefail
-          secret_name="$SECRET_NAME"
-          if [ -z "$secret_name" ] || [ "$secret_name" = "null" ]; then
-            secret_name="static-web-app-token"
+          rg="${{ steps.deploy_infra.outputs.resource-group }}"
+          site="${{ steps.deploy_infra.outputs.static-site-name }}"
+          if [ -z "$rg" ] || [ -z "$site" ]; then
+            echo "Missing static site deployment outputs." >&2
+            exit 1
           fi
-          token=$(az keyvault secret show \
-            --vault-name "$KEYVAULT_NAME" \
-            --name "$secret_name" \
-            --query value \
+          token=$(az staticwebapp secrets list \
+            --name "$site" \
+            --resource-group "$rg" \
+            --query properties.apiKey \
             --output tsv)
           if [ -z "$token" ]; then
-            echo "Failed to retrieve Static Web App deployment token from Key Vault." >&2
-            exit 1
+            echo "No deployment token returned; resetting primary token." >&2
+            token=$(az staticwebapp secrets reset-api-key \
+              --name "$site" \
+              --resource-group "$rg" \
+              --type Primary \
+              --query properties.apiKey \
+              --output tsv)
+            if [ -z "$token" ]; then
+              echo "Failed to retrieve Static Web App deployment token." >&2
+              exit 1
+            fi
           fi
           echo "::add-mask::$token"
           echo "deployment-token=$token" >> $GITHUB_OUTPUT
