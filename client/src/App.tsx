@@ -1,30 +1,43 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import ScrollRestoration from "./components/ScrollRestoration";
 import useReveal from "./hooks/useReveal";
-import HeroSection from "./sections/HeroSection";
-import TeamSection from "./sections/TeamSection";
-import InnovationSection from "./sections/InnovationSection";
-import MiningSection from "./sections/MiningSection";
-import AboutSection from "./sections/AboutSection";
-import ContactSection from "./sections/ContactSection";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
+import HomePage from "./pages/HomePage";
+import IndigenousMiningPage from "./pages/IndigenousMiningPage";
+import InnovationPage from "./pages/InnovationPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import TeamPage from "./pages/TeamPage";
 
-const App = () => {
+const AppLayout = () => {
   useReveal();
 
   return (
-    <div className="bg-stp-cream text-stp-dark">
+    <div className="flex min-h-screen flex-col bg-stp-cream text-stp-dark">
       <Navbar />
-      <main className="space-y-0">
-        <HeroSection />
-        <TeamSection />
-        <InnovationSection />
-        <MiningSection />
-        <AboutSection />
-        <ContactSection />
+      <ScrollRestoration />
+      <main className="flex-1">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/team" element={<TeamPage />} />
+          <Route path="/innovation" element={<InnovationPage />} />
+          <Route path="/indigenous-mining" element={<IndigenousMiningPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </main>
       <Footer />
     </div>
   );
 };
+
+const App = () => (
+  <BrowserRouter>
+    <AppLayout />
+  </BrowserRouter>
+);
 
 export default App;

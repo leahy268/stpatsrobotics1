@@ -23,9 +23,27 @@ Open the dev server URL printed in the terminal (defaults to `http://localhost:5
 
 ## Media Assets
 
-- Download the latest images from the Canva site (or other sources) into `client/public/assets`.
-- Keep file names consistent with the references in `client/src/data/content.ts` to avoid broken links.
-- Optimise assets (compress, resize) before committing to keep the repo lightweight.
+1. Copy `client/scripts/assets-manifest.example.json` to `client/scripts/assets-manifest.json` and replace each placeholder URL with the real Canva asset URL (open the Canva site, inspect an image, and copy the direct `https://stpatricks-fll.my.canva.site/_assets/media/...` link).
+2. Run the helper script to pull everything into `public/assets`:
+	```pwsh
+	cd client
+	pwsh ./scripts/download-assets.ps1
+	```
+3. Keep file names aligned with `client/src/data/content.ts` so components continue to resolve the expected images.
+4. Optimise assets (compress, resize) before committing to keep the repo lightweight.
+
+If you prefer manual downloads, save each image into `client/public/assets` using the filenames listed in the manifest; the script is simply a convenience wrapper around those URLs.
+
+## Site Structure
+
+Each major section from the Canva site now has its own route powered by React Router:
+
+- `/` – Landing page with hero and quick links to the other sections.
+- `/team` – Team biographies and roles.
+- `/innovation` – 2025 innovation project overview.
+- `/indigenous-mining` – Indigenous mining deep dive.
+- `/about` – St Patrick’s College background.
+- `/contact` – Contact details and external resources.
 
 ## Folder Structure
 
@@ -39,6 +57,7 @@ Open the dev server URL printed in the terminal (defaults to `http://localhost:5
 - `pnpm build` – Production build.
 - `pnpm preview` – Preview prod build locally.
 - `pnpm lint` – Run ESLint (configure rules as needed).
+- `pwsh ./scripts/download-assets.ps1` – Fetch Canva-hosted media into `public/assets` using the manifest.
 
 ## Next Steps
 

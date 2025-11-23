@@ -15,19 +15,19 @@ const InnovationSection = () => (
           <ul className="space-y-6">
             {innovationProject.highlights.map((point) => (
               <li key={point} className="flex gap-4 text-stone-700">
-                <span className="mt-1 inline-flex h-3 w-3 flex-none rounded-full bg-stp-secondary" />
+                <span className="mt-1 inline-flex h-3 w-3 flex-none rounded-full bg-stp-accent" />
                 <p>{point}</p>
               </li>
             ))}
           </ul>
-          <div className="rounded-3xl border border-stp-secondary/40 bg-white/80 p-8 shadow-lg">
-            <p className="text-sm uppercase tracking-[0.3em] text-stp-secondary">
+          <div className="rounded-3xl border border-stp-accent/50 bg-white/85 p-8 shadow-lg">
+            <p className="text-sm uppercase tracking-[0.3em] text-stp-accent-dark">
               Project Callout
             </p>
             <p className="mt-4 text-base text-stp-dark">{innovationProject.callout}</p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <ButtonLink href="#mining">Explore Indigenous Mining</ButtonLink>
-              <ButtonLink href="#contact" variant="secondary">
+              <ButtonLink to="/indigenous-mining">Explore Indigenous Mining</ButtonLink>
+              <ButtonLink to="/contact" variant="secondary">
                 Partner with Us
               </ButtonLink>
             </div>

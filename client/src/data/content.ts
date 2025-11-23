@@ -1,16 +1,16 @@
 export type NavLink = {
   id: string;
   label: string;
-  href: string;
+  to: string;
 };
 
 export const navLinks: NavLink[] = [
-  { id: "home", label: "Home", href: "#home" },
-  { id: "team", label: "Our Team", href: "#team" },
-  { id: "innovation", label: "2025 Innovation", href: "#innovation" },
-  { id: "mining", label: "Indigenous Mining", href: "#mining" },
-  { id: "about", label: "About St Patrick's", href: "#about" },
-  { id: "contact", label: "Contact", href: "#contact" }
+  { id: "home", label: "Home", to: "/" },
+  { id: "team", label: "Our Team", to: "/team" },
+  { id: "innovation", label: "2025 Innovation", to: "/innovation" },
+  { id: "mining", label: "Indigenous Mining", to: "/indigenous-mining" },
+  { id: "about", label: "About St Patrick's", to: "/about" },
+  { id: "contact", label: "Contact", to: "/contact" }
 ];
 
 export type HeroContent = {
@@ -20,11 +20,11 @@ export type HeroContent = {
   description: string;
   primaryCta: {
     label: string;
-    href: string;
+    to: string;
   };
   secondaryCta: {
     label: string;
-    href: string;
+    to: string;
   };
   media: {
     src: string;
@@ -40,11 +40,11 @@ export const heroContent: HeroContent = {
     "Championing innovative STEM solutions, community engagement, and Indigenous knowledge to build a brighter future for robotics in Central Queensland.",
   primaryCta: {
     label: "Meet the Team",
-    href: "#team"
+    to: "/team"
   },
   secondaryCta: {
     label: "Contact Us",
-    href: "#contact"
+    to: "/contact"
   },
   media: {
     src: "/assets/hero-team.jpg",

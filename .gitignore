@@ -7,6 +7,7 @@ yarn.lock
 # Build outputs
 client/dist/
 client/.vite/
+client/scripts/assets-manifest.json
 
 # Logs
 *.log

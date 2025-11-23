@@ -1,6 +1,9 @@
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const useReveal = () => {
+  const { pathname } = useLocation();
+
   useEffect(() => {
     const elements = document.querySelectorAll<HTMLElement>("[data-reveal]");
 
@@ -31,7 +34,7 @@ const useReveal = () => {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [pathname]);
 };
 
 export default useReveal;
