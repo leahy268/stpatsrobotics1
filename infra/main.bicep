@@ -54,6 +54,9 @@ module staticSite 'br/public:avm/res/web/static-site:0.9.3' = {
 module customDomain 'customDomain.bicep' = if (!empty(customDomainName)) {
   name: '${staticSiteName}-customDomain'
   scope: siteRg
+  dependsOn: [
+    staticSite
+  ]
   params: {
     staticSiteName: staticSiteName
     customDomainName: customDomainName
@@ -66,6 +69,9 @@ var shouldExportToken = exportDeploymentToken && !empty(keyVaultName) && !empty(
 module tokenExport 'tokenToKeyVault.bicep' = if (shouldExportToken) {
   name: '${staticSiteName}-token-export'
   scope: siteRg
+  dependsOn: [
+    staticSite
+  ]
   params: {
     location: location
     staticSiteName: staticSiteName
