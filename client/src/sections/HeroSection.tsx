@@ -52,7 +52,7 @@ const HeroSection = () => {
               {accentImages.map((item, index) => (
                 <figure
                   key={item.src}
-                  className={`relative h-36 w-36 overflow-hidden rounded-full border-[8px] border-stp-cream bg-stp-cream/60 shadow-xl shadow-stp-dark/40 transition-transform ${
+                  className={`relative h-40 w-40 overflow-hidden rounded-full border-[8px] border-stp-cream bg-stp-cream/60 shadow-xl shadow-stp-dark/40 transition-transform ${
                     index === 0 ? "-translate-x-10" : "translate-x-8"
                   }`}
                 >
