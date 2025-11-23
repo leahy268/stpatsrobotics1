@@ -1,0 +1,18 @@
+@import "./styles/scroll.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: only light;
+}
+
+body {
+  font-family: theme("fontFamily.body");
+}
+
+::selection {
+  background-color: theme("colors.stp-secondary");
+  color: theme("colors.stp-dark");
+}
