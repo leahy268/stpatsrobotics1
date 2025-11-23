@@ -10,7 +10,7 @@ param outputLocation string = 'dist'
 param appLocation string = 'client'
 param customDomainName string = 'stpatsrobotics1.info'
 param customDomainValidationMethod string = 'dns-txt-token'
-
+param sku string = 'Standard'
 var normalizedBase = toLower(replace(baseName, '_', '-'))
 var resourceGroupName = '${normalizedBase}-swa-rg'
 var staticSiteName = toLower(take('${normalizedBase}-${uniqueString(subscription().id, resourceGroupName)}', 40))
@@ -35,6 +35,7 @@ module staticSite 'br/public:avm/res/web/static-site:0.9.3' = {
     branch: repositoryBranch
     repositoryToken: repositoryToken
     buildProperties: buildConfig
+    sku: sku
     managedIdentities: {
       systemAssigned: true
     }
