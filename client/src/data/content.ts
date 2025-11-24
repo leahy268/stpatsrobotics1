@@ -9,8 +9,9 @@ export const navLinks: NavLink[] = [
   { id: "team", label: "Our Team", to: "/team" },
   { id: "innovation", label: "2025 Innovation", to: "/innovation" },
   { id: "mining", label: "Indigenous Mining", to: "/indigenous-mining" },
+  { id: "sponsors", label: "Our Sponsors", to: "/sponsors" },
   { id: "about", label: "About St Patrick's", to: "/about" },
-  { id: "contact", label: "Contact", to: "/contact" }
+  { id: "contact", label: "Contact Us", to: "/contact" }
 ];
 
 export type HeroContent = {
@@ -64,10 +65,31 @@ export type TeamMember = {
 
 export const teamMembers: TeamMember[] = [
   {
+    name: "Mrs Tudehope",
+    role: "Head Coach",
+    description:
+      "Manages and instructs robotics at St Patricks and organises events for the club.",
+    image: {
+      src: "/assets/team-mrstudehope.jpg",
+      alt: "Mrs Tudehope coaching the team"
+    }
+  },
+  {
+    name: "Mrs Moy",
+    role: "Support Coach",
+    description:
+      "Brings good vibes and overwhelming support to the team during practices and competitions.",
+    image: {
+      src: "/assets/team-mrsmoy.jpg",
+      alt: "Mrs Moy supporting the team"
+    }
+  },
+  
+  {
     name: "Maddox Takken",
     role: "Lead Programmer & Builder",
     description:
-      "Architects robust robot code and mechanical solutions that deliver consistent performance on the competition field.",
+      "Codes and constructs the robot so every mission run delivers high performance and reliability.",
     image: {
       src: "/assets/team-maddox.jpg",
       alt: "Maddox Takken working on the robot"
@@ -77,7 +99,7 @@ export const teamMembers: TeamMember[] = [
     name: "Zachary Leahy",
     role: "Team Manager",
     description:
-      "Keeps the team on track with strategic planning, time management, and collaborative leadership.",
+      "Oversees coordination, time management, and match strategy to keep the team operating smoothly.",
     image: {
       src: "/assets/team-zachary.jpg",
       alt: "Zachary Leahy presenting project notes"
@@ -87,7 +109,7 @@ export const teamMembers: TeamMember[] = [
     name: "Logan Sanders",
     role: "Lead Innovator",
     description:
-      "Drives the research and ideation process behind the team's innovation project and community outreach.",
+      "Drives the creative process, developing new solutions for team projects and presentations.",
     image: {
       src: "/assets/team-logan.jpg",
       alt: "Logan Sanders showcasing a prototype"
@@ -97,7 +119,7 @@ export const teamMembers: TeamMember[] = [
     name: "Elessa Sales",
     role: "Innovation Specialist",
     description:
-      "Transforms research into compelling storytelling for judges, stakeholders, and the wider community.",
+      "Provides research and design expertise that refines the team's presentations and supporting materials.",
     image: {
       src: "/assets/team-elessa.jpg",
       alt: "Elessa Sales preparing presentation boards"
@@ -107,7 +129,7 @@ export const teamMembers: TeamMember[] = [
     name: "Kyan Woods",
     role: "Course Planner & Builder",
     description:
-      "Engineers navigation strategies that yield reliable mission runs through rigorous testing and iteration.",
+      "Focuses on navigation and obstacle challenges, ensuring the robot handles every course with precision.",
     image: {
       src: "/assets/team-kyan.jpg",
       alt: "Kyan Woods aligning course elements"
@@ -117,10 +139,61 @@ export const teamMembers: TeamMember[] = [
     name: "Elijah Johnson",
     role: "Team Support",
     description:
-      "Bolsters the team with logistics, morale, and pit support so every run has the resources it needs.",
+      "Provides essential assistance and motivation that keeps the team energised throughout competition days.",
     image: {
       src: "/assets/team-elijah.jpg",
       alt: "Elijah Johnson supporting team prep"
+    }
+  }
+];
+
+export type Sponsor = {
+  name: string;
+  tier: string;
+  description: string;
+  contribution: string;
+  website?: string;
+  logo?: {
+    src: string;
+    alt: string;
+  };
+};
+
+export const sponsors: Sponsor[] = [
+  {
+    name: "CQUniversity Mackay Campus",
+    tier: "Gold Partner",
+    description:
+      "Provides access to STEM mentors, workshop spaces, and tertiary pathways that accelerate our engineering and research skills.",
+    contribution: "Mentoring & Facilities",
+    website: "https://www.cqu.edu.au/"
+  },
+  {
+    name: "Mackay Regional Council",
+    tier: "Community Sponsor",
+    description:
+      "Supports regional robotics initiatives and helps us share our innovation project across the Mackay community.",
+    contribution: "Community Engagement",
+    website: "https://www.mackay.qld.gov.au/"
+  },
+  {
+    name: "Engineering Connections Mackay",
+    tier: "Technical Sponsor",
+    description:
+      "Offers machine shop guidance and real-world engineering advice that informs our robot design decisions.",
+    contribution: "Technical Expertise",
+    website: "https://www.engineeringconnections.com.au/"
+  },
+  {
+    name: "Dalrymple Bay Coal Terminal",
+    tier: "STEM Futures Sponsor",
+    description:
+      "Invests in regional STEM pathways, helping our team travel, compete, and present our innovation project to new audiences.",
+    contribution: "STEM Pathways Funding",
+    website: "https://www.dbct.com.au/",
+    logo: {
+      src: "/assets/sponsor-dalybay.png",
+      alt: "Dalrymple Bay Coal Terminal logo"
     }
   }
 ];
@@ -160,20 +233,20 @@ export type MiningInsight = {
 
 export const miningInsights: MiningInsight[] = [
   {
-    heading: "Tens of thousands of years of expertise",
-    body: "Indigenous communities have honed site selection, extraction, and material trade with a deep respect for Country."
+    heading: "Deep time knowledge",
+    body: "Indigenous Australian mining stretches back tens of millennia, guided by intimate knowledge of Country and its resources."
   },
   {
-    heading: "Sustainable by design",
-    body: "Mining approaches prioritised cultural needs over mass extraction, leaving ecosystems and songlines intact."
+    heading: "Purpose over profit",
+    body: "Materials were extracted for cultural purpose, ceremony, and trade—not mass production—ensuring balance with the environment."
   },
   {
-    heading: "Ochre, flint, and more",
-    body: "High-value resources supported art, ceremony, trade networks, and innovative toolmaking across the continent."
+    heading: "Resource networks",
+    body: "Ochre, flint, stone, and clay travelled across vast trade routes, supporting art, tools, ceremony, and knowledge-sharing."
   },
   {
-    heading: "Wilgie Mia as a global reference",
-    body: "One of the world's oldest known mines demonstrates advanced geology, safety, and resource management practices."
+    heading: "Wilgie Mia leadership",
+    body: "Sites like Western Australia's Wilgie Mia reveal advanced geology, resource management, and cultural stewardship that predate modern mining."
   }
 ];
 
@@ -225,7 +298,7 @@ export const contactInfo: ContactInfo = {
   description:
     "We welcome collaboration, mentoring, and speaking opportunities. Reach out and let's build something extraordinary together.",
   email: "stpatsonemky@gmail.com",
-  phone: "+61 493 881 431",
+  phone: "(07) 4994 8700",
   address: "St Patrick's College Mackay, 2 Gregory Street, Mackay QLD 4740",
   socials: [
     {

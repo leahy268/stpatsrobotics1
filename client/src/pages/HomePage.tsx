@@ -8,6 +8,7 @@ const featureCopy: Record<string, string> = {
   innovation: "Explore our 2025 innovation project that blends Indigenous knowledge with future-focused STEM.",
   mining: "Dive deeper into Indigenous Australian mining practices and the lessons they inspire today.",
   about: "Get to know St Patrick's College Mackay and the robotics program that fuels our success.",
+  sponsors: "Meet the partners whose resources, mentoring, and advocacy keep St Patrick's One moving forward.",
   contact: "Reach out to collaborate, mentor, or invite us to share our journey with your community."
 };
 

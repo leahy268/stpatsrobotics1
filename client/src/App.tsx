@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage";
 import IndigenousMiningPage from "./pages/IndigenousMiningPage";
 import InnovationPage from "./pages/InnovationPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import SponsorsPage from "./pages/SponsorsPage";
 import TeamPage from "./pages/TeamPage";
 
 const AppLayout = () => {
@@ -24,6 +25,7 @@ const AppLayout = () => {
           <Route path="/team" element={<TeamPage />} />
           <Route path="/innovation" element={<InnovationPage />} />
           <Route path="/indigenous-mining" element={<IndigenousMiningPage />} />
+          <Route path="/sponsors" element={<SponsorsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />

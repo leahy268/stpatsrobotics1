@@ -6,7 +6,7 @@ const MiningSection = () => (
     <div className="mx-auto max-w-6xl px-6 py-24">
       <SectionHeading
         eyebrow="Indigenous Mining"
-        title="Learning from millennia of sustainable practice"
+        title="Learning from the past for our future"
         description="Our project celebrates Indigenous Australian custodianship, connecting geology, culture, and future-facing STEM."
       />
       <div className="mt-16 grid gap-10 lg:grid-cols-2">

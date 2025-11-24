@@ -12,7 +12,7 @@ const Navbar = () => {
           <img
             src="/assets/colour-logo.jpg"
             alt="St Patrick's One Robotics logo"
-            className="h-10 w-10 rounded-full shadow-lg shadow-stp-dark/20"
+            className="h-10 w-10 shadow-lg shadow-stp-dark/20"
           />
           <span>St Patrick's One Robotics</span>
         </Link>
