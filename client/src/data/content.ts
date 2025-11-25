@@ -161,28 +161,40 @@ export type Sponsor = {
 
 export const sponsors: Sponsor[] = [
   {
-    name: "CQUniversity Mackay Campus",
-    tier: "Gold Partner",
+    name: "RAM Engineering Solutions",
+    tier: "STEM Sponsor",
     description:
-      "Provides access to STEM mentors, workshop spaces, and tertiary pathways that accelerate our engineering and research skills.",
-    contribution: "Mentoring & Facilities",
-    website: "https://www.cqu.edu.au/"
+      "Provides access to real world industry experience and funding for STEM at St Patricks.",
+    contribution: "Mentoring and Funding",
+    website: "http://www.ramengineering.com/",
+    logo: {
+      src: "/assets/sponsor-ram.jpg",
+      alt: "RAM Engineering Solutions logo"
+    }
   },
   {
-    name: "Mackay Regional Council",
+    name: "Forge Engineering",
+    tier: "Industry Sponsor",
+    description:
+      "Supports Robotics at St Patrick's with funding and knowledge to help us travel and share our story.",
+    contribution: "Community Engagement",
+    website: "https://forgeengineering.com.au/",
+    logo: {
+      src: "/assets/sponsor-forge.png",
+      alt: "Forge Engineering logo"
+    }
+  },
+  {
+    name: "Rotary North Mackay",
     tier: "Community Sponsor",
     description:
-      "Supports regional robotics initiatives and helps us share our innovation project across the Mackay community.",
-    contribution: "Community Engagement",
-    website: "https://www.mackay.qld.gov.au/"
-  },
-  {
-    name: "Engineering Connections Mackay",
-    tier: "Technical Sponsor",
-    description:
-      "Offers machine shop guidance and real-world engineering advice that informs our robot design decisions.",
+      "Offers funding to St Patrick' STEM initiatives and community engagement.",
     contribution: "Technical Expertise",
-    website: "https://www.engineeringconnections.com.au/"
+    website: "https://rotarymackay.org.au/index.php/mackay-region/",
+    logo: {
+      src: "/assets/sponsor-rotary.jpg",
+      alt: "Rotary North Mackay logo"
+    }
   },
   {
     name: "Dalrymple Bay Coal Terminal",
@@ -220,9 +232,8 @@ export const innovationProject: InnovationProject = {
   ],
   callout: "Tap into the full project breakdown, research insights, and exhibit concept plan.",
   gallery: [
-    { src: "/assets/innovation-1.jpg", alt: "Team collaborating on innovation research" },
-    { src: "/assets/innovation-2.jpg", alt: "Storyboard concept for Indigenous mining exhibit" },
-    { src: "/assets/innovation-3.jpg", alt: "Prototype artefact display concept" }
+    { src: "/assets/innovation-1.jpg", alt: "Team competing at 2025 regional robotics competition in Mackay" },
+    { src: "/assets/innovation-2.jpg", alt: "Team photo at 2025 regional robotics competition in Mackay" }
   ]
 };
 
@@ -271,9 +282,9 @@ export const aboutSection: AboutSection = {
     "The robotics program empowers builders, coders, and innovators to tackle real-world problems through teamwork and competition."
   ],
   stats: [
-    { label: "Robotics Cohort", value: "60+ students" },
-    { label: "Industry Mentors", value: "8 partners" },
-    { label: "Competitions", value: "6+ annually" }
+    { label: "Robotics Subject", value: "60+ students" },
+    { label: "Industry Sponsors", value: "5 partners" },
+    { label: "Competitions", value: "2+ annually" }
   ],
   image: {
     src: "/assets/stp-campus.jpg",
