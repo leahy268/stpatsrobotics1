@@ -37,28 +37,28 @@ const MiningDetailPage = () => {
           </h1>
         </header>
 
+        {/* Content with optional floated image */}
         <div className="prose prose-stone mt-10 max-w-none">
+          {/* Optional image - floated top right with text wrap */}
+          {insight.image && (
+            <figure className="float-right ml-6 mb-4 mt-1 w-48 sm:w-56 md:w-64">
+              <div className="overflow-hidden rounded-2xl border border-stp-primary/10 bg-white p-2 shadow-sm">
+                <img
+                  src={insight.image.src}
+                  alt={insight.image.alt}
+                  className="h-auto w-full object-contain"
+                />
+              </div>
+              {insight.image.alt && (
+                <figcaption className="mt-2 text-center text-xs text-stone-500">
+                  {insight.image.alt}
+                </figcaption>
+              )}
+            </figure>
+          )}
           <p className="text-lg leading-relaxed text-stone-700">{insight.body}</p>
           <p className="mt-6 text-base leading-relaxed text-stone-600">{insight.detail}</p>
         </div>
-
-        {/* Optional image - sized to match parent page cards */}
-        {insight.image && (
-          <figure className="mt-10">
-            <div className="overflow-hidden rounded-2xl border border-stp-primary/10 bg-white p-4 shadow-sm">
-              <img
-                src={insight.image.src}
-                alt={insight.image.alt}
-                className="mx-auto h-auto max-h-80 w-auto max-w-full object-contain"
-              />
-            </div>
-            {insight.image.alt && (
-              <figcaption className="mt-3 text-center text-sm text-stone-500">
-                {insight.image.alt}
-              </figcaption>
-            )}
-          </figure>
-        )}
 
         {/* Related insights */}
         <aside className="mt-16 border-t border-stone-200 pt-10">
