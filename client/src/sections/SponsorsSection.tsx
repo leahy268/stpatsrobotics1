@@ -6,7 +6,7 @@ const SponsorsSection = () => (
     <div className="mx-auto max-w-6xl px-6 py-24">
       <SectionHeading
         eyebrow="Sponsors"
-        title="Partners who power our season"
+        title="Partners who power our success"
         description="Local industry, education, and community leaders invest in St Patrick's One so we can prototype faster, travel further, and inspire more students to pursue STEM."
       />
       <div className="mt-16 grid gap-8 md:grid-cols-2">
