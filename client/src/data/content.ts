@@ -151,7 +151,6 @@ export type Sponsor = {
   name: string;
   tier: string;
   description: string;
-  contribution: string;
   website?: string;
   logo?: {
     src: string;
@@ -165,7 +164,6 @@ export const sponsors: Sponsor[] = [
     tier: "STEM Sponsor",
     description:
       "Provides access to real world industry experience and funding for STEM at St Patricks.",
-    contribution: "Mentoring and Funding",
     website: "http://www.ramengineering.com/",
     logo: {
       src: "/assets/sponsor-ram.jpg",
@@ -177,7 +175,6 @@ export const sponsors: Sponsor[] = [
     tier: "Industry Sponsor",
     description:
       "Supports Robotics at St Patrick's with funding and knowledge to help us travel and share our story.",
-    contribution: "Community Engagement",
     website: "https://forgeengineering.com.au/",
     logo: {
       src: "/assets/sponsor-forge.png",
@@ -189,7 +186,6 @@ export const sponsors: Sponsor[] = [
     tier: "Community Sponsor",
     description:
       "Offers funding to St Patrick' STEM initiatives and community engagement.",
-    contribution: "Technical Expertise",
     website: "https://rotarymackay.org.au/index.php/mackay-region/",
     logo: {
       src: "/assets/sponsor-rotary.jpg",
@@ -201,7 +197,6 @@ export const sponsors: Sponsor[] = [
     tier: "STEM Futures Sponsor",
     description:
       "Invests in regional STEM pathways, helping our team travel, compete, and present our innovation project to new audiences.",
-    contribution: "STEM Pathways Funding",
     website: "https://www.dbct.com.au/",
     logo: {
       src: "/assets/sponsor-dalybay.png",

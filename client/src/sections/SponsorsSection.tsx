@@ -44,10 +44,7 @@ const SponsorsSection = () => (
                   <h3 className="font-display text-xl font-semibold text-stp-dark">{sponsor.name}</h3>
                 </div>
               </div>
-              <p className="text-sm text-stone-700">{sponsor.description}</p>
-              <div className="mt-auto rounded-2xl bg-stp-light px-4 py-3 text-sm font-medium text-stp-dark">
-                Contribution focus: <span className="font-semibold text-stp-primary">{sponsor.contribution}</span>
-              </div>
+              <p className="mt-auto text-sm text-stone-700">{sponsor.description}</p>
               {sponsor.website && (
                 <a
                   href={sponsor.website}
