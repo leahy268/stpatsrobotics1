@@ -238,26 +238,48 @@ export const innovationProject: InnovationProject = {
 };
 
 export type MiningInsight = {
+  id: string;
   heading: string;
   body: string;
+  detail: string;
+  image?: {
+    src: string;
+    alt: string;
+  };
 };
 
 export const miningInsights: MiningInsight[] = [
   {
+    id: "deep-time-knowledge",
     heading: "Deep time knowledge",
-    body: "Indigenous Australian mining stretches back tens of millennia, guided by intimate knowledge of Country and its resources."
+    body: "Indigenous Australian mining stretches back tens of millennia, guided by intimate knowledge of Country and its resources.",
+    detail:
+      "Indigenous Australian mining stretches back tens of millennia, guided by intimate knowledge of Country and its resources. Archaeological evidence from across the continent reveals carefully managed quarries, ochre pits and stone extraction sites dating back more than 30,000–40,000 years—among the oldest mining activities anywhere on Earth. These practices were not incidental; they reflected a highly developed understanding of geology, stone quality, colour variation, seasonal conditions, and site safety. Through oral tradition, story, songlines and ceremonial teaching, knowledge holders passed down precise information about where to dig, how much to take, and the cultural protocols required before any extraction could occur. Mining was therefore embedded within a broader system of law, identity, and custodianship, demonstrating a time-depth of resource management unparalleled in Australia’s industrial history."
+    // image: { src: "/assets/mining-deep-time.jpg", alt: "Ancient mining site" }
   },
   {
+    id: "purpose-over-profit",
     heading: "Purpose over profit",
-    body: "Materials were extracted for cultural purpose, ceremony, and trade—not mass production—ensuring balance with the environment."
+    body: "Materials were extracted for cultural purpose, ceremony, and trade—not mass production—ensuring balance with the environment.",
+    detail:
+      "For Indigenous Australians, mining was never about maximising output or exploiting the land for material gain. Materials were extracted for cultural purpose, ceremony, exchange and community use, always with a strong ethic of balance and sustainability. Ochre was gathered for law and ceremony, stone was shaped into tools essential for food, hunting and protection, and clays were collected for art, healing, and body decoration. Importantly, extraction occurred only when required and only in accordance with cultural authority. Elders ensured that quarries and pits were not overworked, that sacred areas were respected, and that the integrity of Country was maintained. This contrasts sharply with contemporary mining approaches; rather than large-scale removal, Indigenous extraction was precise, respectful and aligned with reciprocal responsibilities to the land."
+    // image: { src: "/assets/mining-purpose.jpg", alt: "Ceremonial ochre use" }
   },
   {
+    id: "resource-networks",
     heading: "Resource networks",
-    body: "Ochre, flint, stone, and clay travelled across vast trade routes, supporting art, tools, ceremony, and knowledge-sharing."
+    body: "Ochre, flint, stone, and clay travelled across vast trade routes, supporting art, tools, ceremony, and knowledge-sharing.",
+    detail:
+      "Ochre, flint, stone and clay formed the backbone of sophisticated trade and knowledge networks that stretched across the continent. High-quality materials extracted in one region could travel hundreds or even thousands of kilometres through established trading corridors, with goods exchanged between Nations as part of Diplomacy, kinship relationships and ceremonial obligations. Red ochre from Wilgie Mia, for example, has been found far into the Central Desert, while stone axes from northern Queensland were traded deep into the Gulf and western regions. These resource flows were accompanied by the movement of stories, law, artistry and technology, reinforcing social cohesion and cultural continuity. Mining products were therefore not isolated materials; they were vehicles of connection, identity and shared cultural knowledge.",
+      image: { src: "/assets/resource-networks.png", alt: "Ancient trade routes" }
   },
   {
+    id: "wilgie-mia-leadership",
     heading: "Wilgie Mia leadership",
-    body: "Sites like Western Australia's Wilgie Mia reveal advanced geology, resource management, and cultural stewardship that predate modern mining."
+    body: "Sites like Western Australia's Wilgie Mia reveal advanced geology, resource management, and cultural stewardship that predate modern mining.",
+    detail:
+      "Sites such as Wilgie Mia in Western Australia—often cited as the world’s oldest known ochre mine—demonstrate the remarkable sophistication of Indigenous mining long before the arrival of industrial techniques. At Wilgie Mia, miners created deep underground chambers, ventilation pathways, and carefully stabilised extraction zones using only stone tools and cultural engineering knowledge. Strict protocols governed who could access the site, when extraction could occur, and how ochre should be treated and transported. This represents a complex system of geology, resource management, cultural authority and environmental stewardship that predates modern mining principles by tens of thousands of years. Far from being primitive operations, these sites reflect leadership, organisation and expertise that rival early global mining traditions—and continue to hold deep cultural significance to Traditional Owners today.",
+    image: { src: "/assets/mining-large.jpg", alt: "Wilgie Mia ochre mine" }
   }
 ];
 
