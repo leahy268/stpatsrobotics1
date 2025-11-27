@@ -86,7 +86,7 @@ export const teamMembers: TeamMember[] = [
   },
   
   {
-    name: "Maddox Takken",
+    name: "Maddox T",
     role: "Lead Programmer & Builder",
     description:
       "Codes and constructs the robot so every mission run delivers high performance and reliability.",
@@ -96,7 +96,7 @@ export const teamMembers: TeamMember[] = [
     }
   },
   {
-    name: "Zachary Leahy",
+    name: "Zachary L",
     role: "Team Manager",
     description:
       "Oversees coordination, time management, and match strategy to keep the team operating smoothly.",
@@ -106,7 +106,7 @@ export const teamMembers: TeamMember[] = [
     }
   },
   {
-    name: "Logan Sanders",
+    name: "Logan S",
     role: "Lead Innovator",
     description:
       "Drives the creative process, developing new solutions for team projects and presentations.",
@@ -116,7 +116,7 @@ export const teamMembers: TeamMember[] = [
     }
   },
   {
-    name: "Elessa Sales",
+    name: "Elessa S",
     role: "Innovation Specialist",
     description:
       "Provides research and design expertise that refines the team's presentations and supporting materials.",
@@ -126,7 +126,7 @@ export const teamMembers: TeamMember[] = [
     }
   },
   {
-    name: "Kyan Woods",
+    name: "Kyan W",
     role: "Course Planner & Builder",
     description:
       "Focuses on navigation and obstacle challenges, ensuring the robot handles every course with precision.",
@@ -136,7 +136,7 @@ export const teamMembers: TeamMember[] = [
     }
   },
   {
-    name: "Elijah Johnson",
+    name: "Elijah J",
     role: "Team Support",
     description:
       "Provides essential assistance and motivation that keeps the team energised throughout competition days.",
@@ -164,7 +164,7 @@ export const sponsors: Sponsor[] = [
     tier: "STEM Sponsor",
     description:
       "Provides access to real world industry experience and funding for STEM at St Patricks.",
-    website: "http://www.ramengineering.com/",
+    website: "https://au.linkedin.com/company/ram-engineering-solutions",
     logo: {
       src: "/assets/sponsor-ram.jpg",
       alt: "RAM Engineering Solutions logo"
@@ -249,15 +249,15 @@ export const miningInsights: MiningInsight[] = [
     heading: "Deep time knowledge",
     body: "Indigenous Australian mining stretches back tens of millennia, guided by intimate knowledge of Country and its resources.",
     detail:
-      "Indigenous Australian mining stretches back tens of millennia, guided by intimate knowledge of Country and its resources. Archaeological evidence from across the continent reveals carefully managed quarries, ochre pits and stone extraction sites dating back more than 30,000–40,000 years—among the oldest mining activities anywhere on Earth. These practices were not incidental; they reflected a highly developed understanding of geology, stone quality, colour variation, seasonal conditions, and site safety. Through oral tradition, story, songlines and ceremonial teaching, knowledge holders passed down precise information about where to dig, how much to take, and the cultural protocols required before any extraction could occur. Mining was therefore embedded within a broader system of law, identity, and custodianship, demonstrating a time-depth of resource management unparalleled in Australia’s industrial history."
+      "Indigenous Australian mining stretches back tens of thousands of years, guided by limited and folk knowledge on country and its resources. Archaeological evidence from across Australia reveals that there many carefully managed quarries, ochre pits and stone extraction sites dating back more than 30,000 - 40,000 years being among the oldest mining activities anywhere on Earth building the foundations for current mining techniques. Through oral tradition, story, songlines and ceremonial teaching, knowledge holders passed down many, many generations to now current mining techniques. Our Innovation solution was to create awareness, for mining, Australians and Internationals."
     // image: { src: "/assets/mining-deep-time.jpg", alt: "Ancient mining site" }
   },
   {
     id: "purpose-over-profit",
     heading: "Purpose over profit",
-    body: "Materials were extracted for cultural purpose, ceremony, and trade—not mass production—ensuring balance with the environment.",
+    body: "Materials were extracted for cultural purpose, ceremony, and trade, not mass production ensuring balance with the environment.",
     detail:
-      "For Indigenous Australians, mining was never about maximising output or exploiting the land for material gain. Materials were extracted for cultural purpose, ceremony, exchange and community use, always with a strong ethic of balance and sustainability. Ochre was gathered for law and ceremony, stone was shaped into tools essential for food, hunting and protection, and clays were collected for art, healing, and body decoration. Importantly, extraction occurred only when required and only in accordance with cultural authority. Elders ensured that quarries and pits were not overworked, that sacred areas were respected, and that the integrity of Country was maintained. This contrasts sharply with contemporary mining approaches; rather than large-scale removal, Indigenous extraction was precise, respectful and aligned with reciprocal responsibilities to the land."
+      "For Indigenous Australians, mining was never about maximising output or exploiting the land for material gain. Materials were extracted for cultural purpose, ceremony, exchange and community use, always with a strong ethic for cultural purpose, ceremony and a strong ethic of balance and sustainability. Elders ensured that people were respecting and not overworking the mines and making sure that the land was respected the way it should while maintaining strong cultural heritage."
     // image: { src: "/assets/mining-purpose.jpg", alt: "Ceremonial ochre use" }
   },
   {
@@ -273,7 +273,7 @@ export const miningInsights: MiningInsight[] = [
     heading: "Wilgie Mia leadership",
     body: "Sites like Western Australia's Wilgie Mia reveal advanced geology, resource management, and cultural stewardship that predate modern mining.",
     detail:
-      "Sites such as Wilgie Mia in Western Australia—often cited as the world’s oldest known ochre mine—demonstrate the remarkable sophistication of Indigenous mining long before the arrival of industrial techniques. At Wilgie Mia, miners created deep underground chambers, ventilation pathways, and carefully stabilised extraction zones using only stone tools and cultural engineering knowledge. Strict protocols governed who could access the site, when extraction could occur, and how ochre should be treated and transported. This represents a complex system of geology, resource management, cultural authority and environmental stewardship that predates modern mining principles by tens of thousands of years. Far from being primitive operations, these sites reflect leadership, organisation and expertise that rival early global mining traditions—and continue to hold deep cultural significance to Traditional Owners today.",
+      "Sites such as Wilgie Mia in Western Australia, is often seen as the world’s oldest known ochre mine which demonstrates the remarkable sophistication of Indigenous Mining long before the arrival of industrial grade equipment and techniques. At Wilgie Mia, miners created deep underground chambers, ventilation routes and carefully stabilised extraction zones using only stone tools and cultural engineering knowledge. Due to how unadvanced the technology and resources were, there were no workplace health and safety protocols, majors rules or restrictions to people who could mine in the area. This did not mean that there were not complex geological resource management protocols with cultural authority and environmental stewardship that can teach modern mining to be more cautious and respectful for the environment.",
     image: { src: "/assets/mining-large.jpg", alt: "Wilgie Mia ochre mine" }
   }
 ];
