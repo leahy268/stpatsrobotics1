@@ -20,16 +20,39 @@ const InnovationSection = () => (
               </li>
             ))}
           </ul>
+
+          {/* Explore Indigenous Mining */}
           <div className="rounded-3xl border border-stp-accent/50 bg-white/85 p-8 shadow-lg">
             <p className="text-sm uppercase tracking-[0.3em] text-stp-accent-dark">
-              Project Callout
+              Explore Indigenous Mining
             </p>
             <p className="mt-4 text-base text-stp-dark">{innovationProject.callout}</p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <ButtonLink to="/indigenous-mining">Explore Indigenous Mining</ButtonLink>
+              <ButtonLink to="/indigenous-mining">Learn More</ButtonLink>
               <ButtonLink to="/contact" variant="secondary">
                 Partner with Us
               </ButtonLink>
+            </div>
+          </div>
+
+          {/* Mackay Mining Museum */}
+          <div className="rounded-3xl border border-stp-accent/50 bg-white/85 p-8 shadow-lg">
+            <p className="text-sm uppercase tracking-[0.3em] text-stp-accent-dark">
+              Mackay Mining Museum
+            </p>
+            <p className="mt-4 text-base text-stp-dark">
+              Explore our interactive digital museum showcasing the rich mining heritage of the Mackay region and Indigenous Australian mining traditions.
+            </p>
+            <div className="mt-6">
+              <a
+                href="https://stpatricks-fll.my.canva.site/mackayminingmuseum"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-stp-primary px-6 py-3 text-sm font-semibold text-white shadow transition hover:bg-stp-accent focus:outline-none focus:ring-2 focus:ring-stp-primary/50"
+              >
+                Visit Museum
+                <span aria-hidden>→</span>
+              </a>
             </div>
           </div>
         </div>
