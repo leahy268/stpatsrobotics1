@@ -5,8 +5,9 @@ import HeroSection from "../sections/HeroSection";
 
 const featureCopy: Record<string, string> = {
   team: "Meet the programmers, builders, and storytellers driving every mission run and research milestone.",
-  innovation: "Explore our 2025 innovation project that blends Indigenous knowledge with future-focused STEM.",
-  mining: "Dive deeper into Indigenous Australian mining practices and the lessons they inspire today.",
+  innovation: "Watch our PSA and explore the research behind light pollution's effect on bats and forest regeneration.",
+  robot: "See how sensors, filtering, and control systems work together to keep our robot on course.",
+  "past-seasons": "Recap the projects and themes from every FIRST LEGO League season we've competed in.",
   about: "Get to know St Patrick's College Mackay and the robotics program that fuels our success.",
   sponsors: "Meet the partners whose resources, mentoring, and advocacy keep St Patrick's One moving forward.",
   contact: "Reach out to collaborate, mentor, or invite us to share our journey with your community."

@@ -10,6 +10,8 @@ import IndigenousMiningPage from "./pages/IndigenousMiningPage";
 import InnovationPage from "./pages/InnovationPage";
 import MiningDetailPage from "./pages/MiningDetailPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import PastSeasonsPage from "./pages/PastSeasonsPage";
+import RobotPage from "./pages/RobotPage";
 import SponsorsPage from "./pages/SponsorsPage";
 import TeamPage from "./pages/TeamPage";
 
@@ -25,6 +27,8 @@ const AppLayout = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/team" element={<TeamPage />} />
           <Route path="/innovation" element={<InnovationPage />} />
+          <Route path="/robot" element={<RobotPage />} />
+          <Route path="/past-seasons" element={<PastSeasonsPage />} />
           <Route path="/indigenous-mining" element={<IndigenousMiningPage />} />
           <Route path="/indigenous-mining/:id" element={<MiningDetailPage />} />
           <Route path="/sponsors" element={<SponsorsPage />} />
