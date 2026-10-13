@@ -36,6 +36,24 @@ const MiningSection = () => (
           </Link>
         ))}
       </div>
+      <div className="mt-10 rounded-3xl border border-stp-accent/50 bg-white/85 p-8 shadow-lg" data-reveal>
+        <p className="text-sm uppercase tracking-[0.3em] text-stp-accent-dark">Mackay Mining Museum</p>
+        <p className="mt-4 text-base text-stp-dark">
+          Explore our interactive digital museum showcasing the rich mining heritage of the Mackay region and
+          Indigenous Australian mining traditions.
+        </p>
+        <div className="mt-6">
+          <a
+            href="https://stpatricks-fll.my.canva.site/mackayminingmuseum"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-stp-primary px-6 py-3 text-sm font-semibold text-white shadow transition hover:bg-stp-accent focus:outline-none focus:ring-2 focus:ring-stp-primary/50"
+          >
+            Visit Museum
+            <span aria-hidden>→</span>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 );

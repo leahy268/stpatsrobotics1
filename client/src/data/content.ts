@@ -7,8 +7,9 @@ export type NavLink = {
 export const navLinks: NavLink[] = [
   { id: "home", label: "Home", to: "/" },
   { id: "team", label: "Our Team", to: "/team" },
-  { id: "innovation", label: "2025 Innovation", to: "/innovation" },
-  { id: "mining", label: "Indigenous Mining", to: "/indigenous-mining" },
+  { id: "innovation", label: "2026 Innovation", to: "/innovation" },
+  { id: "robot", label: "Our Robot", to: "/robot" },
+  { id: "past-seasons", label: "Past Seasons", to: "/past-seasons" },
   { id: "sponsors", label: "Our Sponsors", to: "/sponsors" },
   { id: "about", label: "About St Patrick's", to: "/about" },
   { id: "contact", label: "Contact Us", to: "/contact" }
@@ -92,7 +93,7 @@ export const teamMembers: TeamMember[] = [
       "Codes and constructs the robot so every mission run delivers high performance and reliability.",
     image: {
       src: "/assets/team-maddox.jpg",
-      alt: "Maddox Takken working on the robot"
+      alt: "Maddox T working on the robot"
     }
   },
   {
@@ -102,7 +103,7 @@ export const teamMembers: TeamMember[] = [
       "Oversees coordination, time management, and match strategy to keep the team operating smoothly.",
     image: {
       src: "/assets/team-zachary.jpg",
-      alt: "Zachary Leahy presenting project notes"
+      alt: "Zachary L presenting project notes"
     }
   },
   {
@@ -112,7 +113,7 @@ export const teamMembers: TeamMember[] = [
       "Drives the creative process, developing new solutions for team projects and presentations.",
     image: {
       src: "/assets/team-logan.jpg",
-      alt: "Logan Sanders showcasing a prototype"
+      alt: "Logan S showcasing a prototype"
     }
   },
   {
@@ -122,7 +123,7 @@ export const teamMembers: TeamMember[] = [
       "Provides research and design expertise that refines the team's presentations and supporting materials.",
     image: {
       src: "/assets/team-elessa.jpg",
-      alt: "Elessa Sales preparing presentation boards"
+      alt: "Elessa S preparing presentation boards"
     }
   },
   {
@@ -132,7 +133,7 @@ export const teamMembers: TeamMember[] = [
       "Focuses on navigation and obstacle challenges, ensuring the robot handles every course with precision.",
     image: {
       src: "/assets/team-kyan.jpg",
-      alt: "Kyan Woods aligning course elements"
+      alt: "Kyan W aligning course elements"
     }
   },
   {
@@ -142,7 +143,7 @@ export const teamMembers: TeamMember[] = [
       "Provides essential assistance and motivation that keeps the team energised throughout competition days.",
     image: {
       src: "/assets/team-elijah.jpg",
-      alt: "Elijah Johnson supporting team prep"
+      alt: "Elijah J supporting team prep"
     }
   }
 ];
@@ -208,27 +209,126 @@ export const sponsors: Sponsor[] = [
 export type InnovationProject = {
   title: string;
   summary: string;
-  highlights: string[];
+  video: {
+    heading: string;
+    embedUrl: string;
+  };
+  story: Array<{
+    heading: string;
+    paragraphs: string[];
+  }>;
+  awareness: {
+    heading: string;
+    points: string[];
+    source: string;
+  };
   callout: string;
-  gallery: Array<{
+};
+
+export const innovationProject: InnovationProject = {
+  title: "2026 Innovation Project",
+  summary:
+    "Shining a light on how artificial light pollution disrupts bats and other nocturnal wildlife, and what that means for forest regeneration.",
+  video: {
+    heading: "Our PSA",
+    embedUrl: "https://www.youtube.com/embed/P7LzMHbe3kU"
+  },
+  story: [
+    {
+      heading: "Why we made a video",
+      paragraphs: [
+        "Early in the year, our team decided to use a video to present our issue because we believed it would be more engaging and effective than simply explaining the information. Our topic focused on bats, artificial light, and how this can affect forest regeneration, so a film allowed us to visually show the connection between the issue and its environmental impacts.",
+        "We wanted the audience to understand the issue while also keeping them interested, which led us to develop the idea as a PSA-style video. Once the team agreed that this format best suited our message, we made the concept official and began planning the production."
+      ]
+    },
+    {
+      heading: "Planning our direction",
+      paragraphs: [
+        "When the idea of creating an advertisement-style PSA was confirmed, we were eager to take the lead because we already had some experience from media class. We had a good understanding of how important it was to have a clear direction before starting the actual production.",
+        "As a team, we discussed different approaches to the PSA and considered which style would have the biggest impact on our target audience. We didn't want the video to feel like we were just listing facts or giving a presentation. Instead, we wanted it to feel more like an actual advertisement, using a combination of visuals, dialogue, camera work, and editing to make the message more interesting and memorable.",
+        "Having a clear direction early on made the production process more organised, because everyone had a better understanding of what we were trying to create and what role each part of the PSA played."
+      ]
+    }
+  ],
+  awareness: {
+    heading: "Why it matters",
+    points: [
+      "A growing number of mammals are switching to a nocturnal cycle and sleeping during the day.",
+      "These new habits cause problems finding food and shelter, with knock-on effects for other species.",
+      "A shift in nocturnal animal populations can affect how an area regrows after disturbance, through changes to seed dispersal, pollination, herbivory, predator-prey balance, and soil health.",
+      "Anthropogenic light pollution is a global issue, increasing by around 6% each year. Bats, and the prey they rely on, are strongly influenced by artificial lighting."
+    ],
+    source: "Lacoeuilhe A, 2014"
+  },
+  callout: "Explore the research, planning, and past projects behind St Patrick's One."
+};
+
+export type PastSeason = {
+  year: string;
+  title: string;
+  theme: string;
+  summary: string;
+  link?: {
+    label: string;
+    to: string;
+  };
+  gallery?: Array<{
     src: string;
     alt: string;
   }>;
 };
 
-export const innovationProject: InnovationProject = {
-  title: "2025 Innovation Project",
+export const pastSeasons: PastSeason[] = [
+  {
+    year: "2024",
+    title: "2024 Submerged",
+    theme: "Rubbish Collection",
+    summary:
+      "Our founding season, competing in the FIRST LEGO League Submerged challenge. The team researched rubbish collection and its impact on waterways, building the foundations of teamwork and research that St Patrick's One still relies on today."
+  },
+  {
+    year: "2025",
+    title: "2025 Indigenous Mining",
+    theme: "Indigenous Australian Mining Knowledge",
+    summary:
+      "Fusing Indigenous Australian mining knowledge with modern design thinking to inspire sustainable resource education, including a concept exhibit for Mackay Artspace and a digital Mackay Mining Museum.",
+    link: {
+      label: "Explore the full project",
+      to: "/indigenous-mining"
+    },
+    gallery: [
+      { src: "/assets/innovation-1.jpg", alt: "Team competing at the 2025 regional robotics competition in Mackay" },
+      { src: "/assets/innovation-2.jpg", alt: "Team photo at the 2025 regional robotics competition in Mackay" }
+    ]
+  }
+];
+
+export type RobotOverview = {
+  title: string;
+  summary: string;
+  sections: Array<{
+    heading: string;
+    body: string;
+  }>;
+};
+
+export const robotOverview: RobotOverview = {
+  title: "How our robot stays on course",
   summary:
-    "Fusing Indigenous Australian mining knowledge with modern design thinking to inspire sustainable resource education.",
-  highlights: [
-    "Consulted with cultural and archaeology experts to ground the work in authentic knowledge.",
-    "Designed an interactive exhibit concept for Mackay Artspace, emphasising Country-led storytelling.",
-    "Developed hands-on learning touchpoints that translate history into future-ready STEM pathways."
-  ],
-  callout: "Tap into the full project breakdown, research insights, and exhibit concept plan.",
-  gallery: [
-    { src: "/assets/innovation-1.jpg", alt: "Team competing at 2025 regional robotics competition in Mackay" },
-    { src: "/assets/innovation-2.jpg", alt: "Team photo at 2025 regional robotics competition in Mackay" }
+    "Our robot combines several sensors with a smart control system so it can drive accurately and consistently, run after run.",
+  sections: [
+    {
+      heading: "What it senses",
+      body: "Our robot reads from two colour sensors, a built-in gyroscope and accelerometer, and encoders on both driving motors. Together these tell the robot how far it has travelled, which way it is facing, and how fast it is moving."
+    },
+    {
+      heading: "Cleaning up the data",
+      body: "Raw sensor readings are noisy, so we filter out background noise and combine readings from different sensors, trusting each one more or less depending on how reliable it's been recently. This gives a much cleaner picture of where the robot actually is."
+    },
+    {
+      heading: "Planning the next move",
+      body: "Using that clean picture, the robot predicts where it will be a fraction of a second from now, compares that to where it needs to be, and calculates the smallest possible adjustment to its motors to correct course. This keeps movement smooth instead of jerky, while still correcting mistakes quickly."
+    }
   ]
 };
 
