@@ -10,11 +10,11 @@ const Navbar = () => {
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 text-white">
         <Link to="/" className="flex items-center gap-2 text-lg font-semibold text-white">
           <img
-            src="/assets/colour-logo.jpg"
-            alt="St Patrick's One Robotics logo"
+            src="/assets/logo-spcm-mirage.jpg"
+            alt="SPCM Mirage logo"
             className="h-10 w-10 shadow-lg shadow-stp-dark/20"
           />
-          <span>St Patrick's One Robotics</span>
+          <span>SPCM Mirage</span>
         </Link>
         <button
           type="button"
