@@ -35,7 +35,7 @@ const TeamSection = () => {
         <SectionHeading
           eyebrow="Our Team"
           title="People behind the missions"
-          description="Formed in 2024, St Patrick's One united for the current FIRST LEGO League season, qualifying for the Australian Nationals in Gladstone through collaborative design, programming, and research excellence."
+          description="Formed in 2024, SPCM Mirage united for the current FIRST LEGO League season, qualifying for the Australian Nationals in Gladstone through collaborative design, programming, and research excellence."
         />
         <div className="mt-16 space-y-12">
           <div className="flex flex-wrap justify-center gap-10">

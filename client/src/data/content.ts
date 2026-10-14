@@ -37,7 +37,7 @@ export type HeroContent = {
 export const heroContent: HeroContent = {
   eyebrow: "St Patrick's College Mackay",
   title: "FIRST LEGO League",
-  highlight: "St Patrick's One Robotics Team",
+  highlight: "SPCM Mirage",
   description:
     "Championing innovative STEM solutions, community engagement, and Indigenous knowledge to build a brighter future for robotics in Central Queensland.",
   primaryCta: {
@@ -50,7 +50,7 @@ export const heroContent: HeroContent = {
   },
   media: {
     src: "/assets/hero-team.jpg",
-    alt: "St Patrick's One Robotics Team at competition"
+    alt: "SPCM Mirage at competition"
   }
 };
 
@@ -270,7 +270,7 @@ export const innovationProject: InnovationProject = {
     ],
     source: "Lacoeuilhe A, 2014"
   },
-  callout: "Explore the research, planning, and past projects behind St Patrick's One."
+  callout: "Explore the research, planning, and past projects behind SPCM Mirage."
 };
 
 export type PastSeason = {
@@ -294,7 +294,7 @@ export const pastSeasons: PastSeason[] = [
     title: "2024 Submerged",
     theme: "Rubbish Collection",
     summary:
-      "Our founding season, competing in the FIRST LEGO League Submerged challenge. The team researched rubbish collection and its impact on waterways, building the foundations of teamwork and research that St Patrick's One still relies on today."
+      "Our founding season, competing in the FIRST LEGO League Submerged challenge. The team researched rubbish collection and its impact on waterways, building the foundations of teamwork and research that SPCM Mirage still relies on today."
   },
   {
     year: "2025",
@@ -432,10 +432,10 @@ export type ContactInfo = {
 };
 
 export const contactInfo: ContactInfo = {
-  title: "Contact St Patrick's One",
+  title: "Contact SPCM Mirage",
   description:
     "We welcome collaboration, mentoring, and speaking opportunities. Reach out and let's build something extraordinary together.",
-  email: "stpatsonemky@gmail.com",
+  email: "spcmmirage@gmail.com",
   phone: "(07) 4994 8700",
   address: "St Patrick's College Mackay, 2 Gregory Street, Mackay QLD 4740",
   socials: [
