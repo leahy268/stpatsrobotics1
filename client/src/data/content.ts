@@ -127,6 +127,16 @@ export const teamMembers: TeamMember[] = [
     }
   },
   {
+    name: "Jayden S",
+    role: "Innovator",
+    description:
+      "Contributes fresh ideas and creative problem-solving to the team's innovation project.",
+    image: {
+      src: "/assets/team-jayden.jpg",
+      alt: "Jayden S working on the innovation project"
+    }
+  },
+  {
     name: "Kyan W",
     role: "Course Planner & Builder",
     description:
