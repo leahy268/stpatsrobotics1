@@ -8,7 +8,7 @@ const PastSeasonsSection = () => (
       <SectionHeading
         eyebrow="Team History"
         title="Past Seasons"
-        description="A recap of the FIRST LEGO League seasons St Patrick's One has competed in, and the projects that came out of each one."
+        description="A recap of the FIRST LEGO League seasons SPCM Mirage has competed in, and the projects that came out of each one."
       />
       <div className="mt-16 space-y-10">
         {pastSeasons.map((season) => (

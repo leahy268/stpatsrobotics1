@@ -1,6 +1,6 @@
-# St Patrick's One Robotics Web
+# SPCM Mirage Web
 
-Modern React + Tailwind rebuild of the St Patrick's One Robotics website, inspired by the original Canva site and expanded with reusable components and structured content.
+Modern React + Tailwind rebuild of the SPCM Mirage (St Patrick's College Mackay) robotics website, inspired by the original Canva site and expanded with reusable components and structured content.
 
 ## Getting Started
 

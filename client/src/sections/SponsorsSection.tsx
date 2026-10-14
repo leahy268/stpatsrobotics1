@@ -7,7 +7,7 @@ const SponsorsSection = () => (
       <SectionHeading
         eyebrow="Sponsors"
         title="Partners who power our success"
-        description="Local industry, education, and community leaders invest in St Patrick's One so we can prototype faster, travel further, and inspire more students to pursue STEM."
+        description="Local industry, education, and community leaders invest in SPCM Mirage so we can prototype faster, travel further, and inspire more students to pursue STEM."
       />
       <div className="mt-16 grid gap-8 md:grid-cols-2">
         {sponsors.map((sponsor) => {
