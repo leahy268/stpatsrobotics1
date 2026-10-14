@@ -425,7 +425,7 @@ export const contactInfo: ContactInfo = {
   title: "Contact SPCM Mirage",
   description:
     "We welcome collaboration, mentoring, and speaking opportunities. Reach out and let's build something extraordinary together.",
-  email: "stpatsonemky@gmail.com",
+  email: "spcmmirage@gmail.com",
   phone: "(07) 4994 8700",
   address: "St Patrick's College Mackay, 2 Gregory Street, Mackay QLD 4740",
   socials: [
