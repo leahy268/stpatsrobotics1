@@ -9,7 +9,7 @@ const featureCopy: Record<string, string> = {
   robot: "See how sensors, filtering, and control systems work together to keep our robot on course.",
   "past-seasons": "Recap the projects and themes from every FIRST LEGO League season we've competed in.",
   about: "Get to know St Patrick's College Mackay and the robotics program that fuels our success.",
-  sponsors: "Meet the partners whose resources, mentoring, and advocacy keep SPCM Mirage moving forward.",
+  sponsors: "Meet the partners whose resources, mentoring, and advocacy keep St Patrick's One moving forward.",
   contact: "Reach out to collaborate, mentor, or invite us to share our journey with your community."
 };
 
@@ -25,7 +25,7 @@ const HomePage = () => {
             align="center"
             eyebrow="Discover More"
             title="Dive deeper into our story"
-            description="Each dedicated page expands on the people, projects, and partnerships behind SPCM Mirage."
+            description="Each dedicated page expands on the people, projects, and partnerships behind St Patrick's One."
           />
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {featureLinks.map((link) => (
